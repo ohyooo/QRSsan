@@ -31,7 +31,10 @@ jobs:
       - name: Check updates
         run: ./gradlew update && git push
 
-      - name: push changes
+      - name: Config git
+        run: git config user.name ohyooo && git config user.mail i@ohyooo.com
+
+      - name: Push changes
         run: git add . && git commit -m "update libs" && git pish
 
       - name: Build APK
