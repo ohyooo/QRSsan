@@ -12,7 +12,7 @@ object Libs {
     private const val kotlin_version = "1.6.10"
 
     object Plugin {
-        const val AGP = "com.android.tools.build:gradle:7.3.0-alpha02"
+        const val AGP = "com.android.tools.build:gradle:7.3.0-alpha03"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 
@@ -25,7 +25,7 @@ object Libs {
         const val material = "com.google.android.material:material:1.6.0-alpha02"
         const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
 
-        private const val accompanistVersion = "0.24.1-alpha"
+        private const val accompanistVersion = "0.24.2-alpha"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
     }
