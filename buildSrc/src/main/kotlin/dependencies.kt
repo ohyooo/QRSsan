@@ -22,29 +22,29 @@ object Libs {
     }
 
     object Google {
-        const val material = "com.google.android.material:material:1.6.0-alpha02"
+        const val material = "com.google.android.material:material:1.6.0-alpha03"
         const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
 
-        private const val accompanistVersion = "0.24.2-alpha"
+        private const val accompanistVersion = "0.24.3-alpha"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
     }
 
     object AndroidX {
-        const val coreKtx = "androidx.core:core-ktx:1.8.0-alpha04"
+        const val coreKtx = "androidx.core:core-ktx:1.9.0-alpha01"
         const val datastore = "androidx.datastore:datastore:1.0.0"
-        private const val activityVersion = "1.5.0-alpha02"
+        private const val activityVersion = "1.5.0-alpha03"
         const val activity_compose = "androidx.activity:activity-compose:$activityVersion"
-        const val fragment = "androidx.fragment:fragment-ktx:1.5.0-alpha02"
-        const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha02"
+        const val fragment = "androidx.fragment:fragment-ktx:1.5.0-alpha03"
+        const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha03"
     }
 
     object Navigation {
-        const val compose = "androidx.navigation:navigation-compose:2.5.0-alpha02"
+        const val compose = "androidx.navigation:navigation-compose:2.5.0-alpha03"
     }
 
     object Compose {
-        const val composeVersion = "1.2.0-alpha03"
+        const val composeVersion = "1.2.0-alpha04"
         const val animation = "androidx.compose.animation:animation:$composeVersion"
         const val compiler = "androidx.compose.compiler:compiler:$composeVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
@@ -61,7 +61,7 @@ object Libs {
         private const val camerax_version = "1.1.0-alpha11"
         const val camera2 = "androidx.camera:camera-camera2:${camerax_version}"
         const val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}"
-        const val view = "androidx.camera:camera-view:1.1.0-beta01"
+        const val view = "androidx.camera:camera-view:1.1.0-beta02"
     }
 
     val plugins = listOf(Plugin.AGP, Plugin.KGP)
