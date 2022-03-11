@@ -36,7 +36,7 @@ object Libs {
         private const val activityVersion = "1.5.0-alpha03"
         const val activity_compose = "androidx.activity:activity-compose:$activityVersion"
         const val fragment = "androidx.fragment:fragment-ktx:1.5.0-alpha03"
-        const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha03"
+        const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha04"
     }
 
     object Navigation {
@@ -44,7 +44,7 @@ object Libs {
     }
 
     object Compose {
-        const val composeVersion = "1.2.0-alpha04"
+        const val composeVersion = "1.2.0-alpha05"
         const val animation = "androidx.compose.animation:animation:$composeVersion"
         const val compiler = "androidx.compose.compiler:compiler:$composeVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
