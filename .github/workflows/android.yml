@@ -62,6 +62,11 @@ jobs:
           asset_name: "QRScan_ohyooo_${{ steps.time.outputs.time }}.apk"
           asset_content_type: application/zip
 
+      - name: Upload Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "app/build/outputs/apk/release/*.apk"
+ 
       - name: Remove old Releases
         uses: dev-drprasad/delete-older-releases@v0.2.0
         env:
