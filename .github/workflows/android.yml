@@ -50,17 +50,6 @@ jobs:
           release_name: QRScan Release ${{ steps.time.outputs.time }}
           draft: false
           prerelease: false
-     
-      - name: Upload Release
-        id: upload-release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: "app/build/outputs/apk/release/app-release.apk"
-          asset_name: "QRScan_ohyooo_${{ steps.time.outputs.time }}.apk"
-          asset_content_type: application/zip
 
       - name: Generate release tag
         id: tag
