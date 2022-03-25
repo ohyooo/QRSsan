@@ -16,12 +16,12 @@ android {
             enableV4Signing = true
         }
     }
-    compileSdk = Ext.compileSdk
+    compileSdkPreview = "Tiramisu"
     buildToolsVersion = Ext.buildToolsVersion
     defaultConfig {
         applicationId = Ext.applicationId
         minSdk = Ext.minSdk
-        targetSdk = Ext.targetSdk
+        targetSdkPreview = "Tiramisu"
         versionCode = Ext.versionCode
         versionName = Ext.versionName
         proguardFile("proguard-rules.pro")
