@@ -30,8 +30,8 @@ abstract class UpdateTask : DefaultTask() {
         private val versionRegex = "(?<=<version>)(.*\\n?)(?=</version>)".toRegex()
         private val numberDotRegex = "^(\\d+\\.)?(\\d+\\.)?(\\*|\\d+)\$".toRegex()
 
-        private const val checkStable = false
-        private const val autoModify = true
+        private const val checkStable = true
+        private const val autoModify = false
 
         private val stableList = arrayOf(Libs.Plugin.KGP, Libs.Kotlin.stdlib)
     }

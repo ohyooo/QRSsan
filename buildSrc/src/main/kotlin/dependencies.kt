@@ -9,42 +9,42 @@ object Ext {
 }
 
 object Libs {
-    private const val kotlin_version = "1.6.20"
+    private const val kotlin_version = "1.6.10"
 
     object Plugin {
-        const val AGP = "com.android.tools.build:gradle:7.3.0-alpha07"
+        const val AGP = "com.android.tools.build:gradle:7.1.3"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 
     object Kotlin {
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
     }
 
     object Google {
         const val material = "com.google.android.material:material:1.6.0-alpha03"
         const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
 
-        private const val accompanistVersion = "0.24.5-alpha"
+        private const val accompanistVersion = "0.24.6-alpha"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
     }
 
     object AndroidX {
-        const val coreKtx = "androidx.core:core-ktx:1.9.0-alpha02"
+        const val coreKtx = "androidx.core:core-ktx:1.7.0"
         const val datastore = "androidx.datastore:datastore:1.0.0"
-        private const val activityVersion = "1.6.0-alpha01"
+        private const val activityVersion = "1.4.0"
         const val activity_compose = "androidx.activity:activity-compose:$activityVersion"
-        const val fragment = "androidx.fragment:fragment-ktx:1.5.0-alpha04"
-        const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha05"
+        const val fragment = "androidx.fragment:fragment-ktx:1.5.0-alpha05"
+        const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
     }
 
     object Navigation {
-        const val compose = "androidx.navigation:navigation-compose:2.5.0-alpha03"
+        const val compose = "androidx.navigation:navigation-compose:2.4.2"
     }
 
     object Compose {
-        const val composeVersion = "1.2.0-alpha06"
+        const val composeVersion = "1.2.0-alpha07"
         const val animation = "androidx.compose.animation:animation:$composeVersion"
         const val compiler = "androidx.compose.compiler:compiler:$composeVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
@@ -61,7 +61,7 @@ object Libs {
         private const val camerax_version = "1.1.0-alpha11"
         const val camera2 = "androidx.camera:camera-camera2:${camerax_version}"
         const val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}"
-        const val view = "androidx.camera:camera-view:1.1.0-beta02"
+        const val view = "androidx.camera:camera-view:1.1.0-beta03"
     }
 
     val plugins = listOf(Plugin.AGP, Plugin.KGP)

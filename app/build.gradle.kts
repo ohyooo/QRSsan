@@ -16,12 +16,13 @@ android {
             enableV4Signing = true
         }
     }
-    compileSdkPreview = "Tiramisu"
+    // namespace = "com.ohyooo.qrscan"
+    compileSdk = Ext.compileSdk
     buildToolsVersion = Ext.buildToolsVersion
     defaultConfig {
         applicationId = Ext.applicationId
         minSdk = Ext.minSdk
-        targetSdkPreview = "Tiramisu"
+        targetSdk = Ext.targetSdk
         versionCode = Ext.versionCode
         versionName = Ext.versionName
         proguardFile("proguard-rules.pro")
@@ -49,6 +50,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+        freeCompilerArgs = freeCompilerArgs + listOf(
+            "-Xbackend-threads=12",
+            "-P",
+            "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=true"
+        )
     }
     buildFeatures {
         compose = true
