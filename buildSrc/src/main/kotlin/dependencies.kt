@@ -35,7 +35,7 @@ object Libs {
         const val datastore = "androidx.datastore:datastore:1.0.0"
         private const val activityVersion = "1.4.0"
         const val activity_compose = "androidx.activity:activity-compose:$activityVersion"
-        const val fragment = "androidx.fragment:fragment-ktx:1.5.0-alpha05"
+        const val fragment = "androidx.fragment:fragment-ktx:1.4.1"
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
     }
 
