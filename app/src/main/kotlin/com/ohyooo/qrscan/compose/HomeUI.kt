@@ -5,10 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Edit
-import androidx.compose.material.icons.rounded.FileOpen
-import androidx.compose.material.icons.rounded.History
-import androidx.compose.material.icons.rounded.Receipt
+import androidx.compose.material.icons.rounded.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
@@ -20,19 +17,13 @@ import com.google.accompanist.pager.*
 import com.ohyooo.qrscan.ScanActivity
 import kotlinx.coroutines.launch
 
-const val Result = "Result"
-const val Edit = "Edit"
-const val Local = "Local"
-const val History = "History"
+private val Result = Icons.Rounded.Receipt
+private val Edit = Icons.Rounded.Edit
+private val Local = Icons.Rounded.FileOpen
+private val History = Icons.Rounded.History
+private val Setting = Icons.Rounded.Settings
 
-val icoResult = Icons.Rounded.Receipt
-val icoEdit = Icons.Rounded.Edit
-val icoLocal = Icons.Rounded.FileOpen
-val icoHistory = Icons.Rounded.History
-// val icoSetting = Icons.Rounded.Settings
-
-private val tabList = listOf(Result, Edit, Local, History)
-private val tabIconList = listOf(icoResult, icoEdit, icoLocal, icoHistory)
+private val tabList = listOf(Result, Edit, Local, History, Setting)
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -51,27 +42,13 @@ fun MainUI(activity: ScanActivity) {
     ) {
         CameraUI(activity)
     }
-
-    // val navController = rememberNavController()
-    // NavHost(navController = navController, startDestination = Result) {
-    //     composable(Result) { ResultUI(vm = activity.vm) }
-    //     composable(Edit)   { EditUI(vm = activity.vm) }
-    //     composable(Local)  { LocalUI(activity = activity) }
-    //     composable(History) { HistoryUI(vm = activity.vm) }
-    //     composable(Setting) { SettingUI() }
-    // }
 }
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun Home(activity: ScanActivity) {
     Column {
-        val pagerState = rememberPagerState(
-            // pageCount = tabList.size,
-            // initialOffscreenLimit = 1,
-            // infiniteLoop = false,
-            // initialPage = 0,
-        )
+        val pagerState = rememberPagerState()
         val r = activity.vm.result.observeAsState(initial = "")
         if (!r.value.isNullOrEmpty()) {
             LaunchedEffect(key1 = "pagerState") {
@@ -87,13 +64,12 @@ fun Home(activity: ScanActivity) {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // navController.navigate(tabList[index])
                 when (tabList[index]) {
                     Result -> ResultUI(vm = activity.vm)
                     Edit -> EditUI(vm = activity.vm)
                     Local -> LocalUI(activity = activity)
                     History -> HistoryUI(vm = activity.vm)
-                    // Setting -> SettingUI()
+                    Setting -> SettingUI()
                 }
             }
         }
@@ -116,7 +92,7 @@ private fun Tab(pagerState: PagerState) {
             )
         }
     ) {
-        tabIconList.forEachIndexed { index, ico ->
+        tabList.forEachIndexed { index, ico ->
             Tab(selected = tabIndex == index,
                 onClick = {
                     coroutineScope.launch {
