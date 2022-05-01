@@ -18,7 +18,7 @@ private val KEY_LIST = stringPreferencesKey("list")
 
 val Context.ds: DataStore<Preferences> by preferencesDataStore(name = "history")
 
-suspend fun Context.addHistory(result: String) {
+suspend fun Context.addHistory(result: String): List<String> {
     val value = getHistories().apply {
         if (contains(result)) {
             removeAt(indexOf(result))
@@ -32,6 +32,7 @@ suspend fun Context.addHistory(result: String) {
     ds.edit { settings ->
         settings[KEY_LIST] = Json.encodeToString(value)
     }
+    return value
 }
 
 fun Context.getHistories(): MutableList<String> {
