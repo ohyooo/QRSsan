@@ -58,10 +58,10 @@ object Libs {
     }
 
     object Camera {
-        private const val camerax_version = "1.1.0-alpha11"
+        private const val camerax_version = "1.1.0-beta03"
         const val camera2 = "androidx.camera:camera-camera2:${camerax_version}"
         const val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}"
-        const val view = "androidx.camera:camera-view:1.1.0-beta03"
+        const val view = "androidx.camera:camera-view:${camerax_version}"
     }
 
     val plugins = listOf(Plugin.AGP, Plugin.KGP)
