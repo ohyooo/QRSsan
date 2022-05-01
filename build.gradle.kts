@@ -6,6 +6,7 @@ buildscript {
     dependencies {
         classpath(Libs.Plugin.AGP)
         classpath(Libs.Plugin.KGP)
+        classpath(Libs.Plugin.KS)
     }
 }
 
@@ -33,7 +34,7 @@ abstract class UpdateTask : DefaultTask() {
         private const val checkStable = true
         private const val autoModify = false
 
-        private val stableList = arrayOf(Libs.Plugin.KGP, Libs.Kotlin.stdlib)
+        private val stableList = arrayOf(Libs.Plugin.KGP, Libs.Plugin.KS)
     }
 
     @TaskAction

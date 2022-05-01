@@ -14,10 +14,10 @@ object Libs {
     object Plugin {
         const val AGP = "com.android.tools.build:gradle:7.1.3"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        const val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }
 
     object Kotlin {
-        const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
     }
 
@@ -32,11 +32,12 @@ object Libs {
 
     object AndroidX {
         const val coreKtx = "androidx.core:core-ktx:1.7.0"
-        const val datastore = "androidx.datastore:datastore:1.0.0"
+        const val datastore = "androidx.datastore:datastore-preferences:1.0.0"
         private const val activityVersion = "1.4.0"
         const val activity_compose = "androidx.activity:activity-compose:$activityVersion"
         const val fragment = "androidx.fragment:fragment-ktx:1.4.1"
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
+        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2"
     }
 
     object Navigation {
@@ -62,7 +63,7 @@ object Libs {
         const val view = "androidx.camera:camera-view:${camerax_version}"
     }
 
-    val plugins = listOf(Plugin.AGP, Plugin.KGP)
+    val plugins = listOf(Plugin.AGP, Plugin.KGP, Plugin.KS)
 
     val composes = listOf(Compose.compiler, Compose.foundation, Compose.livedata, Compose.material, Compose.materialIconsExtended, Compose.runtime, Compose.ui)
 
@@ -72,6 +73,7 @@ object Libs {
         AndroidX.datastore,
         AndroidX.fragment,
         AndroidX.lifecycle,
+        AndroidX.serialization,
         Camera.camera2,
         Camera.lifecycle,
         Camera.view,
@@ -80,7 +82,6 @@ object Libs {
         Google.pager,
         Google.indicators,
         Kotlin.coroutines,
-        Kotlin.stdlib,
         Navigation.compose,
     )
 
