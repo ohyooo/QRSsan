@@ -4,6 +4,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Edit
+import androidx.compose.material.icons.rounded.FileOpen
+import androidx.compose.material.icons.rounded.History
+import androidx.compose.material.icons.rounded.Receipt
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
@@ -19,9 +24,15 @@ const val Result = "Result"
 const val Edit = "Edit"
 const val Local = "Local"
 const val History = "History"
-// const val Setting = "Setting"
+
+val icoResult = Icons.Rounded.Receipt
+val icoEdit = Icons.Rounded.Edit
+val icoLocal = Icons.Rounded.FileOpen
+val icoHistory = Icons.Rounded.History
+// val icoSetting = Icons.Rounded.Settings
 
 private val tabList = listOf(Result, Edit, Local, History)
+private val tabIconList = listOf(icoResult, icoEdit, icoLocal, icoHistory)
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -105,14 +116,14 @@ private fun Tab(pagerState: PagerState) {
             )
         }
     ) {
-        tabList.forEachIndexed { index, text ->
+        tabIconList.forEachIndexed { index, ico ->
             Tab(selected = tabIndex == index,
                 onClick = {
                     coroutineScope.launch {
                         pagerState.scrollToPage(index)
                     }
                 }, text = {
-                    Text(text = text)
+                    Icon(ico, contentDescription = "")
                 })
         }
     }
