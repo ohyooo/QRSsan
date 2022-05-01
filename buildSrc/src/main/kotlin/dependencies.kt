@@ -45,7 +45,6 @@ object Libs {
 
     object Compose {
         const val composeVersion = "1.2.0-alpha08"
-        const val animation = "androidx.compose.animation:animation:$composeVersion"
         const val compiler = "androidx.compose.compiler:compiler:$composeVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
         const val layout = "androidx.compose.foundation:foundation-layout:$composeVersion"
@@ -53,7 +52,6 @@ object Libs {
         const val material = "androidx.compose.material:material:$composeVersion"
         const val materialIconsExtended = "androidx.compose.material:material-icons-extended:$composeVersion"
         const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
-        const val tooling = "androidx.compose.ui:ui-tooling:$composeVersion"
         const val ui = "androidx.compose.ui:ui:$composeVersion"
     }
 
@@ -66,7 +64,7 @@ object Libs {
 
     val plugins = listOf(Plugin.AGP, Plugin.KGP)
 
-    val composes = listOf(Compose.animation, Compose.compiler, Compose.foundation, Compose.layout, Compose.livedata, Compose.material, Compose.materialIconsExtended, Compose.runtime, Compose.tooling, Compose.ui)
+    val composes = listOf(Compose.compiler, Compose.foundation, Compose.livedata, Compose.material, Compose.materialIconsExtended, Compose.runtime, Compose.ui)
 
     val implementations = listOf(
         AndroidX.activity_compose,
