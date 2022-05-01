@@ -60,7 +60,7 @@ class ScanActivity : AppCompatActivity() {
 
     private fun handleIntent() {
         if (intent?.type?.startsWith("image/") != true) return
-        if (intent?.clipData?.itemCount ?: 0 <= 0) return
+        if ((intent?.clipData?.itemCount ?: 0) <= 0) return
         val data = intent?.clipData?.getItemAt(0)?.uri ?: return
 
         val image = InputImage.fromFilePath(this, data)
