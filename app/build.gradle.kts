@@ -16,7 +16,7 @@ android {
             enableV4Signing = true
         }
     }
-    // namespace = "com.ohyooo.qrscan"
+    namespace = "com.ohyooo.qrscan"
     compileSdk = Ext.compileSdk
     buildToolsVersion = Ext.buildToolsVersion
     defaultConfig {
