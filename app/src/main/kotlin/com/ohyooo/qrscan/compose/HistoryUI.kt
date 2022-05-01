@@ -25,10 +25,10 @@ import kotlinx.coroutines.runBlocking
 fun HistoryUI(vm: ScanViewModel) {
     val context: Context = LocalContext.current
     val results = remember {
-        mutableStateListOf<String>().apply {
-            addAll(context.getHistories())
-        }
+        mutableStateListOf<String>()
     }
+
+    results.addAll(context.getHistories())
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(results.size) { index ->
@@ -38,7 +38,8 @@ fun HistoryUI(vm: ScanViewModel) {
                     .padding(16.dp)
                     .fillMaxWidth()
             ) {
-                AndroidView(modifier = Modifier.fillMaxWidth(),
+                AndroidView(
+                    modifier = Modifier.fillMaxWidth(),
                     factory = { context ->
                         TextView(context).apply {
                             autoLinkMask = Linkify.ALL
