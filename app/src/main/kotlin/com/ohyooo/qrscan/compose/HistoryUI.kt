@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -24,11 +23,9 @@ import kotlinx.coroutines.runBlocking
 @Composable
 fun HistoryUI(vm: ScanViewModel) {
     val context: Context = LocalContext.current
-    val results = remember {
-        mutableStateListOf<String>()
+    var results: List<String> = remember {
+        context.getHistories()
     }
-
-    results.addAll(context.getHistories())
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(results.size) { index ->
@@ -57,8 +54,7 @@ fun HistoryUI(vm: ScanViewModel) {
     vm.result.observe(LocalLifecycleOwner.current) {
         runBlocking {
             if (it.isBlank() || it == results.lastOrNull()) return@runBlocking
-            results.clear()
-            results.addAll(context.addHistory(it))
+            results = context.addHistory(it)
         }
     }
 }

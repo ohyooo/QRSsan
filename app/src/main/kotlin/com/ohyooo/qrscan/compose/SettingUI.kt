@@ -14,12 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.ohyooo.qrscan.util.clearHistory
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable
 fun SettingUI() {
     val context: Context = LocalContext.current
-    val coroutineScope = rememberCoroutineScope()
 
     var confirm by remember {
         mutableStateOf(false)
@@ -30,12 +30,17 @@ fun SettingUI() {
             .fillMaxSize()
             .padding(16.dp)
     ) {
+        val coroutineScope = rememberCoroutineScope()
         Button(onClick = {
             if (confirm) {
                 coroutineScope.launch { context.clearHistory() }
                 confirm = false
             } else {
                 confirm = true
+                coroutineScope.launch {
+                    delay(1000)
+                    confirm = false
+                }
             }
         }) {
             Row {

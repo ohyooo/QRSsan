@@ -9,7 +9,7 @@ object Ext {
 }
 
 object Libs {
-    private const val kotlin_version = "1.6.20"
+    private const val kotlin_version = "1.6.10"
 
     object Plugin {
         const val AGP = "com.android.tools.build:gradle:7.1.3"
@@ -45,7 +45,7 @@ object Libs {
     }
 
     object Compose {
-        const val composeVersion = "1.2.0-alpha08"
+        const val composeVersion = "1.2.0-alpha07"
         const val compiler = "androidx.compose.compiler:compiler:$composeVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
         const val layout = "androidx.compose.foundation:foundation-layout:$composeVersion"
