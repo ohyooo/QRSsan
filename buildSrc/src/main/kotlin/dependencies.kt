@@ -4,8 +4,8 @@ object Ext {
     const val buildToolsVersion = "32.0.0"
     const val minSdk = 21
     const val targetSdk = 32
-    const val versionCode = 5
-    const val versionName = "2.3"
+    const val versionCode = 6
+    const val versionName = "2.6"
 }
 
 object Libs {
