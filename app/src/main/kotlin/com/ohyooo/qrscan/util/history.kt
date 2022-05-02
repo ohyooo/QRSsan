@@ -24,8 +24,10 @@ suspend fun Context.addHistory(result: String): List<String> {
             removeAt(indexOf(result))
         }
         if (size > 20) {
-            removeLast()
+            removeFirstOrNull()
         }
+
+        if (result == lastOrNull()) return this
         add(result)
     }
 
