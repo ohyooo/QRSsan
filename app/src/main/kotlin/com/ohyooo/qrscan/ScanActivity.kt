@@ -67,7 +67,7 @@ class ScanActivity : AppCompatActivity() {
         barcodeClient.process(image)
             .addOnCompleteListener { r ->
                 if (r.result.isNullOrEmpty()) {
-                    Toast.makeText(this, "no data decoded", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "XxxxxxxxxX", Toast.LENGTH_SHORT).show()
                 } else {
                     r.result.firstOrNull()?.displayValue?.let {
                         vm.result.value = it

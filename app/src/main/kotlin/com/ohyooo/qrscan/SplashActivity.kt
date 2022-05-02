@@ -35,7 +35,7 @@ class SplashActivity : AppCompatActivity() {
             if (allPermissionsGranted()) {
                 scan()
             } else {
-                Toast.makeText(this, "Permissions not granted by the user.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "XxxxxxxxxX", Toast.LENGTH_SHORT).show()
                 finish()
             }
         }
