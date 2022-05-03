@@ -2,7 +2,6 @@ package com.ohyooo.qrscan
 
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.M
 import android.os.Bundle
@@ -12,7 +11,6 @@ import android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
 import android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
 import android.widget.Toast
 import androidx.activity.compose.setContent
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.mlkit.vision.common.InputImage
@@ -75,17 +73,4 @@ class ScanActivity : AppCompatActivity() {
                 }
             }
     }
-
-    val content = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        uri ?: return@registerForActivityResult
-        val image = InputImage.fromFilePath(this, uri)
-
-        barcodeClient.process(image)
-            .addOnSuccessListener { r ->
-                r.firstOrNull()?.displayValue?.let {
-                    vm.result.value = it
-                }
-            }
-    }
-
 }

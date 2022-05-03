@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
 import com.ohyooo.qrscan.ScanActivity
+import com.ohyooo.qrscan.ScanViewModel
 import kotlinx.coroutines.launch
 
 private val Result = Icons.Rounded.Receipt
@@ -35,7 +36,7 @@ fun MainUI(activity: ScanActivity) {
     BottomSheetScaffold(
         scaffoldState = bottomSheetScaffoldState,
         sheetContent = {
-            Home(activity = activity)
+            Home(vm = activity.vm)
         },
         sheetPeekHeight = 100.dp,
         modifier = Modifier.fillMaxSize(),
@@ -46,10 +47,10 @@ fun MainUI(activity: ScanActivity) {
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun Home(activity: ScanActivity) {
+fun Home(vm: ScanViewModel) {
     Column {
         val pagerState = rememberPagerState()
-        val r = activity.vm.result.observeAsState(initial = "")
+        val r = vm.result.observeAsState(initial = "")
         if (!r.value.isNullOrEmpty()) {
             LaunchedEffect(key1 = "pagerState") {
                 pagerState.scrollToPage(0)
@@ -65,10 +66,10 @@ fun Home(activity: ScanActivity) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 when (tabList[index]) {
-                    Result -> ResultUI(vm = activity.vm)
-                    Edit -> EditUI(vm = activity.vm)
-                    Local -> LocalUI(activity = activity)
-                    History -> HistoryUI(vm = activity.vm)
+                    Result -> ResultUI(vm = vm)
+                    Edit -> EditUI(vm = vm)
+                    Local -> LocalUI(vm = vm)
+                    History -> HistoryUI(vm = vm)
                     Setting -> SettingUI()
                 }
             }
