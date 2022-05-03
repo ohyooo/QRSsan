@@ -10,15 +10,14 @@ import android.view.Window
 import android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
 import android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
 import android.widget.Toast
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import com.google.mlkit.vision.common.InputImage
 import com.ohyooo.qrscan.compose.MainUI
 import com.ohyooo.qrscan.util.barcodeClient
 
-
-class ScanActivity : AppCompatActivity() {
+class ScanActivity : ComponentActivity() {
 
     val vm by viewModels<ScanViewModel>()
 
