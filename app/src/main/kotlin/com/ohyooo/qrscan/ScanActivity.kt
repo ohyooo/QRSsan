@@ -9,17 +9,14 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
 import android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import com.google.mlkit.vision.common.InputImage
 import com.ohyooo.qrscan.compose.MainUI
-import com.ohyooo.qrscan.util.barcodeClient
 
 class ScanActivity : ComponentActivity() {
 
-    val vm by viewModels<ScanViewModel>()
+    private val vm by viewModels<ScanViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,20 +53,6 @@ class ScanActivity : ComponentActivity() {
     }
 
     private fun handleIntent() {
-        if (intent?.type?.startsWith("image/") != true) return
-        if ((intent?.clipData?.itemCount ?: 0) <= 0) return
-        val data = intent?.clipData?.getItemAt(0)?.uri ?: return
-
-        val image = InputImage.fromFilePath(this, data)
-        barcodeClient.process(image)
-            .addOnCompleteListener { r ->
-                if (r.result.isNullOrEmpty()) {
-                    Toast.makeText(this, "XxxxxxxxxX", Toast.LENGTH_SHORT).show()
-                } else {
-                    r.result.firstOrNull()?.displayValue?.let {
-                        vm.result.value = it
-                    }
-                }
-            }
+        vm.handleIntent(intent)
     }
 }
