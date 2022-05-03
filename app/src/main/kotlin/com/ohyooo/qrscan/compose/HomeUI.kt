@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
-import com.ohyooo.qrscan.ScanActivity
 import com.ohyooo.qrscan.ScanViewModel
 import kotlinx.coroutines.launch
 
@@ -28,7 +27,7 @@ private val tabList = listOf(Result, Edit, Local, History, Setting)
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun MainUI(activity: ScanActivity) {
+fun MainUI(vm: ScanViewModel) {
 
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
@@ -36,12 +35,12 @@ fun MainUI(activity: ScanActivity) {
     BottomSheetScaffold(
         scaffoldState = bottomSheetScaffoldState,
         sheetContent = {
-            Home(vm = activity.vm)
+            Home(vm = vm)
         },
         sheetPeekHeight = 100.dp,
         modifier = Modifier.fillMaxSize(),
     ) {
-        CameraUI(activity)
+        CameraUI(vm)
     }
 }
 
