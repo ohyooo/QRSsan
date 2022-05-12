@@ -9,10 +9,10 @@ object Ext {
 }
 
 object Libs {
-    private const val kotlin_version = "1.6.10"
+    private const val kotlin_version = "1.6.21"
 
     object Plugin {
-        const val AGP = "com.android.tools.build:gradle:7.1.3"
+        const val AGP = "com.android.tools.build:gradle:7.4.0-alpha01"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         const val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }
@@ -22,10 +22,10 @@ object Libs {
     }
 
     object Google {
-        const val material = "com.google.android.material:material:1.6.0-alpha03"
+        const val material = "com.google.android.material:material:1.6.0"
         const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
 
-        private const val accompanistVersion = "0.24.6-alpha"
+        private const val accompanistVersion = "v0.24.8-beta"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
     }
@@ -37,7 +37,7 @@ object Libs {
         const val activity_compose = "androidx.activity:activity-compose:$activityVersion"
         const val fragment = "androidx.fragment:fragment-ktx:1.4.1"
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
-        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2"
+        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3"
     }
 
     object Navigation {
@@ -45,7 +45,7 @@ object Libs {
     }
 
     object Compose {
-        const val composeVersion = "1.2.0-alpha07"
+        const val composeVersion = "1.2.0-beta01"
         const val compiler = "androidx.compose.compiler:compiler:$composeVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
         const val layout = "androidx.compose.foundation:foundation-layout:$composeVersion"
