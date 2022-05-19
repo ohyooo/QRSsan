@@ -12,7 +12,7 @@ object Libs {
     private const val kotlin_version = "1.6.21"
 
     object Plugin {
-        const val AGP = "com.android.tools.build:gradle:7.4.0-alpha01"
+        const val AGP = "com.android.tools.build:gradle:7.2.0"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         const val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }
@@ -25,7 +25,7 @@ object Libs {
         const val material = "com.google.android.material:material:1.6.0"
         const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
 
-        private const val accompanistVersion = "0.24.8-beta"
+        private const val accompanistVersion = "0.24.9-beta"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
     }
@@ -45,7 +45,7 @@ object Libs {
     }
 
     object Compose {
-        const val composeVersion = "1.2.0-beta01"
+        const val composeVersion = "1.2.0-beta02"
         const val compiler = "androidx.compose.compiler:compiler:$composeVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
         const val layout = "androidx.compose.foundation:foundation-layout:$composeVersion"
@@ -57,7 +57,7 @@ object Libs {
     }
 
     object Camera {
-        private const val camerax_version = "1.1.0-beta03"
+        private const val camerax_version = "1.2.0-alpha01"
         const val camera2 = "androidx.camera:camera-camera2:${camerax_version}"
         const val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}"
         const val view = "androidx.camera:camera-view:${camerax_version}"
