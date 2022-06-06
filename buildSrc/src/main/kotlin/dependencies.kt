@@ -18,11 +18,11 @@ object Libs {
     }
 
     object Kotlin {
-        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2"
     }
 
     object Google {
-        const val material = "com.google.android.material:material:1.6.0"
+        const val material = "com.google.android.material:material:1.6.1"
         const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
 
         private const val accompanistVersion = "0.24.9-beta"
@@ -31,7 +31,7 @@ object Libs {
     }
 
     object AndroidX {
-        const val coreKtx = "androidx.core:core-ktx:1.7.0"
+        const val coreKtx = "androidx.core:core-ktx:1.8.0"
         const val datastore = "androidx.datastore:datastore-preferences:1.0.0"
         private const val activityVersion = "1.4.0"
         const val activity_compose = "androidx.activity:activity-compose:$activityVersion"
@@ -45,7 +45,7 @@ object Libs {
     }
 
     object Compose {
-        const val composeVersion = "1.2.0-beta02"
+        const val composeVersion = "1.2.0-beta03"
         const val compiler = "androidx.compose.compiler:compiler:$composeVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
         const val layout = "androidx.compose.foundation:foundation-layout:$composeVersion"
@@ -57,7 +57,7 @@ object Libs {
     }
 
     object Camera {
-        private const val camerax_version = "1.2.0-alpha01"
+        private const val camerax_version = "1.2.0-alpha02"
         const val camera2 = "androidx.camera:camera-camera2:${camerax_version}"
         const val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}"
         const val view = "androidx.camera:camera-view:${camerax_version}"
