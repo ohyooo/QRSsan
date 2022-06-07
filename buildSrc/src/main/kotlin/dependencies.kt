@@ -9,7 +9,7 @@ object Ext {
 }
 
 object Libs {
-    private const val kotlin_version = "1.6.21"
+    private const val kotlin_version = "7.4.0-alpha03"
 
     object Plugin {
         const val AGP = "com.android.tools.build:gradle:7.2.1"
