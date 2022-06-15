@@ -73,7 +73,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         jvmTarget = "17"
         freeCompilerArgs = freeCompilerArgs + listOf(
             "-Xbackend-threads=12",
-            "-opt-in=kotlin.RequiresOptIn"
+            "-opt-in=kotlin.RequiresOptIn",
+            "-Xuse-k2"
         )
     }
 }
