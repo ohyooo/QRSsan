@@ -12,7 +12,7 @@ object Libs {
     private const val kotlin_version = "1.7.0"
 
     object Plugin {
-        const val AGP = "com.android.tools.build:gradle:7.4.0-alpha05"
+        const val AGP = "com.android.tools.build:gradle:7.2.1"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         const val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }
@@ -45,7 +45,7 @@ object Libs {
     }
 
     object Compose {
-        const val composeVersion = "1.2.0-rc01"
+        const val composeVersion = "1.2.0-rc02"
         const val compiler = "androidx.compose.compiler:compiler:$composeVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
         const val layout = "androidx.compose.foundation:foundation-layout:$composeVersion"
