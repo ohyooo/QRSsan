@@ -18,7 +18,7 @@ object Libs {
     }
 
     object Kotlin {
-        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3"
     }
 
     object Google {
