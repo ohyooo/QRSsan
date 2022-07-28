@@ -25,7 +25,7 @@ object Libs {
         const val material = "com.google.android.material:material:1.6.1"
         const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
 
-        private const val accompanistVersion = "0.24.13-rc"
+        private const val accompanistVersion = "0.25.0"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
     }
@@ -33,15 +33,15 @@ object Libs {
     object AndroidX {
         const val coreKtx = "androidx.core:core-ktx:1.8.0"
         const val datastore = "androidx.datastore:datastore-preferences:1.0.0"
-        private const val activityVersion = "1.5.0"
+        private const val activityVersion = "1.5.1"
         const val activity_compose = "androidx.activity:activity-compose:$activityVersion"
-        const val fragment = "androidx.fragment:fragment-ktx:1.5.0"
-        const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
+        const val fragment = "androidx.fragment:fragment-ktx:$activityVersion"
+        const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
         const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3"
     }
 
     object Navigation {
-        const val compose = "androidx.navigation:navigation-compose:2.5.0"
+        const val compose = "androidx.navigation:navigation-compose:2.5.1"
     }
 
     object Compose {
@@ -58,7 +58,7 @@ object Libs {
     }
 
     object Camera {
-        private const val camerax_version = "1.2.0-alpha02"
+        private const val camerax_version = "1.2.0-alpha04"
         const val camera2 = "androidx.camera:camera-camera2:${camerax_version}"
         const val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}"
         const val view = "androidx.camera:camera-view:${camerax_version}"
