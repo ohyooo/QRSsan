@@ -1,9 +1,9 @@
 object Ext {
     const val applicationId = "com.ohyooo.qrscan"
-    const val compileSdk = 32
-    const val buildToolsVersion = "32.0.0"
+    const val compileSdk = 33
+    const val buildToolsVersion = "33.0.0"
     const val minSdk = 21
-    const val targetSdk = 32
+    const val targetSdk = 33
     const val versionCode = 6
     const val versionName = "2.6"
 }
@@ -12,7 +12,7 @@ object Libs {
     private const val kotlin_version = "1.7.10"
 
     object Plugin {
-        const val AGP = "com.android.tools.build:gradle:7.2.1"
+        const val AGP = "com.android.tools.build:gradle:7.2.2"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         const val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }
@@ -46,7 +46,7 @@ object Libs {
 
     object Compose {
         const val composeVersion = "1.3.0-alpha02"
-        const val compilerVersion = "1.3.0-rc01"
+        const val compilerVersion = "1.3.0-rc02"
         const val compiler = "androidx.compose.compiler:compiler:$compilerVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
         const val layout = "androidx.compose.foundation:foundation-layout:$composeVersion"
