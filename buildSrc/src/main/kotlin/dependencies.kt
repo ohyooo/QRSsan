@@ -25,7 +25,7 @@ object Libs {
         const val material = "com.google.android.material:material:1.6.1"
         const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
 
-        private const val accompanistVersion = "0.25.0"
+        private const val accompanistVersion = "0.26.0-alpha"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
     }
