@@ -28,7 +28,7 @@ class ScanActivity : ComponentActivity() {
         makeStatusBarTransparent()
 
         setContent {
-            MainUI(vm)
+            MainUI()
         }
     }
 

@@ -13,6 +13,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.pager.*
 import com.ohyooo.qrscan.ScanViewModel
 import kotlinx.coroutines.launch
@@ -27,7 +28,7 @@ private val tabList = listOf(Result, Edit, Local, History, Setting)
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun MainUI(vm: ScanViewModel) {
+fun MainUI(vm: ScanViewModel = viewModel()) {
 
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)

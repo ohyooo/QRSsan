@@ -17,6 +17,8 @@ import androidx.lifecycle.LifecycleOwner
 import com.ohyooo.qrscan.ScanViewModel
 import com.ohyooo.qrscan.util.QrCodeAnalyzer
 import java.util.concurrent.Executors
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 @Composable
 fun CameraUI(vm: ScanViewModel) {
@@ -31,6 +33,7 @@ fun CameraUI(vm: ScanViewModel) {
         })
 }
 
+//https://www.devbitsandbytes.com/configuring-camerax-in-jetpack-compose-to-take-picture/
 private fun initCamera(context: Context, lifecycleOwner: LifecycleOwner, vm: ScanViewModel, view: PreviewView) {
     val size = Size(view.width, view.height)
 
@@ -69,3 +72,10 @@ private fun initCamera(context: Context, lifecycleOwner: LifecycleOwner, vm: Sca
     }, ContextCompat.getMainExecutor(context))
 }
 
+suspend fun Context.getCameraProvider(): ProcessCameraProvider = suspendCoroutine { continuation ->
+    ProcessCameraProvider.getInstance(this).also { cameraProvider ->
+        cameraProvider.addListener({
+            continuation.resume(cameraProvider.get())
+        }, ContextCompat.getMainExecutor(this))
+    }
+}

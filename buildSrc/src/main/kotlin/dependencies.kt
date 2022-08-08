@@ -38,6 +38,7 @@ object Libs {
         const val fragment = "androidx.fragment:fragment-ktx:$activityVersion"
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
         const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
     }
 
     object Navigation {
@@ -75,6 +76,7 @@ object Libs {
         AndroidX.fragment,
         AndroidX.lifecycle,
         AndroidX.serialization,
+        AndroidX.coroutines,
         Camera.camera2,
         Camera.lifecycle,
         Camera.view,
