@@ -9,17 +9,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.ohyooo.qrscan.ScanViewModel
 import com.ohyooo.qrscan.util.addHistory
 import com.ohyooo.qrscan.util.getHistories
-import kotlinx.coroutines.runBlocking
 
 @Composable
 fun HistoryUI(vm: ScanViewModel) {
@@ -52,9 +51,9 @@ fun HistoryUI(vm: ScanViewModel) {
         }
     }
 
-    vm.result.observe(LocalLifecycleOwner.current) {
-        runBlocking {
-            if (it.isBlank() || it == results.lastOrNull()) return@runBlocking
+    LaunchedEffect(Unit) {
+        vm.result.collect {
+            if (it.isBlank() || it == results.lastOrNull()) return@collect
             results.clear()
             results.addAll(context.addHistory(it))
         }

@@ -8,7 +8,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,10 +49,12 @@ fun MainUI(vm: ScanViewModel = viewModel()) {
 fun Home(vm: ScanViewModel) {
     Column {
         val pagerState = rememberPagerState()
-        val r = vm.result.observeAsState(initial = "")
-        if (!r.value.isNullOrEmpty()) {
-            LaunchedEffect(key1 = "pagerState") {
-                pagerState.scrollToPage(0)
+
+        LaunchedEffect(Unit) {
+            vm.result.collect { r ->
+                if (r.isNotEmpty()) {
+                    pagerState.scrollToPage(0)
+                }
             }
         }
 
