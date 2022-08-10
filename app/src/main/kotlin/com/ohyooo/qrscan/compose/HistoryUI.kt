@@ -16,15 +16,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import com.ohyooo.qrscan.ScanViewModel
-import com.ohyooo.qrscan.util.addHistory
-import com.ohyooo.qrscan.util.getHistories
+import com.ohyooo.qrscan.util.KEY_LIST
+import com.ohyooo.qrscan.util.ds
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 
 @Composable
-fun HistoryUI(vm: ScanViewModel) {
+fun HistoryUI() {
     val context: Context = LocalContext.current
+
     val results = remember {
-        mutableStateListOf<String>().apply { addAll(context.getHistories()) }
+        mutableStateListOf<String>()
+    }
+
+    LaunchedEffect(Unit) {
+        context.ds.data.collect {
+            val listString = it[KEY_LIST] ?: return@collect
+            results.clear()
+            results.addAll(Json.decodeFromString(listString))
+        }
     }
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -48,14 +58,6 @@ fun HistoryUI(vm: ScanViewModel) {
                         it.text = result
                     })
             }
-        }
-    }
-
-    LaunchedEffect(Unit) {
-        vm.result.collect {
-            if (it.isBlank() || it == results.lastOrNull()) return@collect
-            results.clear()
-            results.addAll(context.addHistory(it))
         }
     }
 }

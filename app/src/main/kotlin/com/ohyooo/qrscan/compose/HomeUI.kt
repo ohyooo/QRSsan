@@ -70,7 +70,7 @@ fun Home(vm: ScanViewModel) {
                     Result -> ResultUI(vm = vm)
                     Edit -> EditUI(vm = vm)
                     Local -> LocalUI(vm = vm)
-                    History -> HistoryUI(vm = vm)
+                    History -> HistoryUI()
                     Setting -> SettingUI()
                 }
             }

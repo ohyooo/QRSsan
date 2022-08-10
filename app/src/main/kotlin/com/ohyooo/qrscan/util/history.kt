@@ -14,7 +14,7 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 
-private val KEY_LIST = stringPreferencesKey("list")
+val KEY_LIST = stringPreferencesKey("list")
 
 val Context.ds: DataStore<Preferences> by preferencesDataStore(name = "history")
 
@@ -37,7 +37,7 @@ suspend fun Context.addHistory(result: String): List<String> {
     return value
 }
 
-fun Context.getHistories(): MutableList<String> {
+private fun Context.getHistories(): MutableList<String> {
     var json = "[]"
 
     runBlocking {
