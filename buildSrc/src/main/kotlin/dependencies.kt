@@ -33,7 +33,7 @@ object Libs {
     object AndroidX {
         const val coreKtx = "androidx.core:core-ktx:1.8.0"
         const val datastore = "androidx.datastore:datastore-preferences:1.0.0"
-        private const val activityVersion = "1.5.1"
+        private const val activityVersion = "1.5.2"
         const val activity_compose = "androidx.activity:activity-compose:$activityVersion"
         const val fragment = "androidx.fragment:fragment-ktx:$activityVersion"
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
@@ -46,8 +46,8 @@ object Libs {
     }
 
     object Compose {
-        const val composeVersion = "1.3.0-alpha02"
-        const val compilerVersion = "1.3.0-rc02"
+        const val composeVersion = "1.3.0-alpha03"
+        const val compilerVersion = "1.3.0"
         const val compiler = "androidx.compose.compiler:compiler:$compilerVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
         const val layout = "androidx.compose.foundation:foundation-layout:$composeVersion"
