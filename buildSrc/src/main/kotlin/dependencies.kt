@@ -37,7 +37,7 @@ object Libs {
         const val activity_compose = "androidx.activity:activity-compose:$activityVersion"
         const val fragment = "androidx.fragment:fragment-ktx:$activityVersion"
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
-        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3"
+        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
     }
 
