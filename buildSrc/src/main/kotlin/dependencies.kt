@@ -45,7 +45,7 @@ object Libs {
     }
 
     object Compose {
-        const val composeVersion = "1.3.0-alpha03"
+        const val composeVersion = "1.3.0-beta01"
         const val compilerVersion = "1.3.0"
         const val compiler = "androidx.compose.compiler:compiler:$compilerVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
