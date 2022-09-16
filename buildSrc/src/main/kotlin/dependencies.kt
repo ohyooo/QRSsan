@@ -12,7 +12,7 @@ object Libs {
     private const val kotlin_version = "1.7.10"
 
     object Plugin {
-        const val AGP = "com.android.tools.build:gradle:7.2.2"
+        const val AGP = "com.android.tools.build:gradle:7.3.0"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         const val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }
