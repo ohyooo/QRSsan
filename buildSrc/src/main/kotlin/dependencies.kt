@@ -25,7 +25,7 @@ object Libs {
         const val material = "com.google.android.material:material:1.6.1"
         const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
 
-        private const val accompanistVersion = "0.26.0-alpha"
+        private const val accompanistVersion = "0.26.5-rc"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
     }
@@ -35,7 +35,7 @@ object Libs {
         const val datastore = "androidx.datastore:datastore-preferences:1.0.0"
         const val activity_compose = "androidx.activity:activity-compose:1.6.0"
         const val fragment = "androidx.fragment:fragment-ktx:1.5.3"
-        const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.2"
+        const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
         const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
     }
