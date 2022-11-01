@@ -12,7 +12,7 @@ object Libs {
     private const val kotlin_version = "1.7.20"
 
     object Plugin {
-        const val AGP = "com.android.tools.build:gradle:7.3.0"
+        const val AGP = "com.android.tools.build:gradle:7.3.1"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         const val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }
@@ -22,10 +22,10 @@ object Libs {
     }
 
     object Google {
-        const val material = "com.google.android.material:material:1.6.1"
+        const val material = "com.google.android.material:material:1.7.0"
         const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
 
-        private const val accompanistVersion = "0.26.5-rc"
+        private const val accompanistVersion = "0.27.0"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
     }
@@ -33,15 +33,15 @@ object Libs {
     object AndroidX {
         const val coreKtx = "androidx.core:core-ktx:1.9.0"
         const val datastore = "androidx.datastore:datastore-preferences:1.0.0"
-        const val activity_compose = "androidx.activity:activity-compose:1.6.0"
-        const val fragment = "androidx.fragment:fragment-ktx:1.5.3"
+        const val activity_compose = "androidx.activity:activity-compose:1.6.1"
+        const val fragment = "androidx.fragment:fragment-ktx:1.5.4"
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
-        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0"
+        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
     }
 
     object Navigation {
-        const val compose = "androidx.navigation:navigation-compose:2.5.2"
+        const val compose = "androidx.navigation:navigation-compose:2.5.3"
     }
 
     object Compose {
