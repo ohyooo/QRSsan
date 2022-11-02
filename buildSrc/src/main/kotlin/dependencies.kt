@@ -40,6 +40,13 @@ object Libs {
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
     }
 
+    object Test {
+        const val junit = "androidx.test.ext:junit:1.1.3"
+        const val espresso = "androidx.test.espresso:espresso-core:3.4.0"
+        const val uiautomator = "androidx.test.uiautomator:uiautomator:2.2.0"
+        const val macro = "androidx.benchmark:benchmark-macro-junit4:1.2.0-alpha06"
+    }
+
     object Navigation {
         const val compose = "androidx.navigation:navigation-compose:2.5.3"
     }
@@ -85,6 +92,10 @@ object Libs {
         Google.indicators,
         Kotlin.coroutines,
         Navigation.compose,
+        Test.junit,
+        Test.espresso,
+        Test.uiautomator,
+        Test.macro,
     )
 
     val deps: List<String> = mutableListOf<String>().apply {

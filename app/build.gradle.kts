@@ -16,7 +16,7 @@ android {
             enableV4Signing = true
         }
     }
-    namespace = "com.ohyooo.qrscan"
+    namespace = Ext.applicationId
     compileSdk = Ext.compileSdk
     buildToolsVersion = Ext.buildToolsVersion
     defaultConfig {
@@ -35,15 +35,21 @@ android {
         release {
             isMinifyEnabled = true
         }
-    }
-    splits {
-        abi {
-            isEnable = true
-            reset()
-            include("x86", "armeabi-v7a", "arm64-v8a", "x86_64")
-            isUniversalApk = true
+        create("benchmark") {
+            defaultConfig.minSdk = 23
+            signingConfig = signingConfigs.getByName("debug")
+            matchingFallbacks += listOf("release")
+            isDebuggable = false
         }
     }
+    // splits {
+    //     abi {
+    //         isEnable = true
+    //         reset()
+    //         include("x86", "armeabi-v7a", "arm64-v8a", "x86_64")
+    //         isUniversalApk = true
+    //     }
+    // }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
