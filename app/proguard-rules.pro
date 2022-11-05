@@ -42,5 +42,3 @@
 -keepclassmembers class androidx.lifecycle.ReportFragment$LifecycleCallbacks { *; }
 
 -keep enum * { *; }
-
-dontobfuscate

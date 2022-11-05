@@ -38,6 +38,7 @@ object Libs {
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
         const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+        const val profileinstaller = "androidx.profileinstaller:profileinstaller:1.2.0"
     }
 
     object Test {
@@ -83,6 +84,7 @@ object Libs {
         AndroidX.lifecycle,
         AndroidX.serialization,
         AndroidX.coroutines,
+        AndroidX.profileinstaller,
         Camera.camera2,
         Camera.lifecycle,
         Camera.view,

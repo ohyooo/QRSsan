@@ -27,9 +27,9 @@ android {
     testOptions {
         managedDevices {
             devices {
-                create("pixel2Api30", com.android.build.api.dsl.ManagedVirtualDevice::class) {
+                create("pixel2Api31", com.android.build.api.dsl.ManagedVirtualDevice::class) {
                     device = "Pixel 2"
-                    apiLevel = 30
+                    apiLevel = 31
                     systemImageSource = "aosp"
                 }
             }

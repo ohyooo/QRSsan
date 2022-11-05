@@ -34,22 +34,34 @@ android {
         }
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
         }
         create("benchmark") {
-            defaultConfig.minSdk = 23
+            initWith(getByName("release"))
+            defaultConfig.minSdk = 24
             signingConfig = signingConfigs.getByName("debug")
             matchingFallbacks += listOf("release")
             isDebuggable = false
+
+            // https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile
+            // Benchmark builds should not be obfuscated.
+            postprocessing {
+                isRemoveUnusedCode = true
+                isRemoveUnusedResources = true
+                isObfuscate = false
+                isOptimizeCode = true
+            }
+        }
+
+    }
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            include("x86", "armeabi-v7a", "arm64-v8a", "x86_64")
+            isUniversalApk = true
         }
     }
-    // splits {
-    //     abi {
-    //         isEnable = true
-    //         reset()
-    //         include("x86", "armeabi-v7a", "arm64-v8a", "x86_64")
-    //         isUniversalApk = true
-    //     }
-    // }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
