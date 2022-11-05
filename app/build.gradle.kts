@@ -38,7 +38,6 @@ android {
         }
         create("benchmark") {
             initWith(getByName("release"))
-            defaultConfig.minSdk = 24
             signingConfig = signingConfigs.getByName("debug")
             matchingFallbacks += listOf("release")
             isDebuggable = false
