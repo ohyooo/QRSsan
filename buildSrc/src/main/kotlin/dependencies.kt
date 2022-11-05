@@ -90,7 +90,7 @@ object Libs {
 
     val composes = listOf(Compose.compiler, Compose.foundation, Compose.livedata, Compose.material, Compose.materialIconsExtended, Compose.runtime, Compose.ui)
 
-    val implementations = AndroidX.list + Camera.list + Google.list + Kotlin.list + Navigation.list + Test.list
+    val implementations = AndroidX.list + Camera.list + Google.list + Kotlin.list + Navigation.list
 
     val deps: List<String> = mutableListOf<String>().apply {
         addAll(Plugin.list)
