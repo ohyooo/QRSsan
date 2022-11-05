@@ -15,10 +15,14 @@ object Libs {
         const val AGP = "com.android.tools.build:gradle:7.3.1"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         const val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+
+        val list = arrayOf(AGP, KGP, KS)
     }
 
     object Kotlin {
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
+        val list = arrayOf(coroutines)
     }
 
     object Google {
@@ -28,6 +32,8 @@ object Libs {
         private const val accompanistVersion = "0.27.0"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
+
+        val list = arrayOf(material, barcode, pager, indicators)
     }
 
     object AndroidX {
@@ -39,6 +45,8 @@ object Libs {
         const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
         const val profileinstaller = "androidx.profileinstaller:profileinstaller:1.2.0"
+
+        val list = arrayOf(coreKtx, datastore, activity_compose, fragment, lifecycle, serialization, coroutines, profileinstaller)
     }
 
     object Test {
@@ -46,10 +54,14 @@ object Libs {
         const val espresso = "androidx.test.espresso:espresso-core:3.4.0"
         const val uiautomator = "androidx.test.uiautomator:uiautomator:2.2.0"
         const val macro = "androidx.benchmark:benchmark-macro-junit4:1.2.0-alpha06"
+
+        val list = arrayOf(junit, espresso, uiautomator, macro)
     }
 
     object Navigation {
         const val compose = "androidx.navigation:navigation-compose:2.5.3"
+
+        val list = arrayOf(compose)
     }
 
     object Compose {
@@ -63,6 +75,8 @@ object Libs {
         const val materialIconsExtended = "androidx.compose.material:material-icons-extended:$composeVersion"
         const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
         const val ui = "androidx.compose.ui:ui:$composeVersion"
+
+        val list = arrayOf(compiler, foundation, layout, livedata, material, materialIconsExtended, runtime, ui)
     }
 
     object Camera {
@@ -70,40 +84,18 @@ object Libs {
         const val camera2 = "androidx.camera:camera-camera2:${camerax_version}"
         const val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}"
         const val view = "androidx.camera:camera-view:${camerax_version}"
-    }
 
-    val plugins = listOf(Plugin.AGP, Plugin.KGP, Plugin.KS)
+        val list = arrayOf(camera2, lifecycle, view)
+    }
 
     val composes = listOf(Compose.compiler, Compose.foundation, Compose.livedata, Compose.material, Compose.materialIconsExtended, Compose.runtime, Compose.ui)
 
-    val implementations = listOf(
-        AndroidX.activity_compose,
-        AndroidX.coreKtx,
-        AndroidX.datastore,
-        AndroidX.fragment,
-        AndroidX.lifecycle,
-        AndroidX.serialization,
-        AndroidX.coroutines,
-        AndroidX.profileinstaller,
-        Camera.camera2,
-        Camera.lifecycle,
-        Camera.view,
-        Google.barcode,
-        Google.material,
-        Google.pager,
-        Google.indicators,
-        Kotlin.coroutines,
-        Navigation.compose,
-        Test.junit,
-        Test.espresso,
-        Test.uiautomator,
-        Test.macro,
-    )
+    val implementations = AndroidX.list + Camera.list + Google.list + Kotlin.list + Navigation.list + Test.list
 
     val deps: List<String> = mutableListOf<String>().apply {
-        addAll(plugins)
-        addAll(composes)
-        add(Navigation.compose)
+        addAll(Plugin.list)
+        addAll(Compose.list)
+        addAll(Navigation.list)
         addAll(implementations)
     }
 }
