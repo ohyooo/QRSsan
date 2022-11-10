@@ -80,7 +80,7 @@ object Libs {
     }
 
     object Camera {
-        private const val camerax_version = "1.2.0-alpha04"
+        private const val camerax_version = "	1.3.0-alpha01"
         const val camera2 = "androidx.camera:camera-camera2:${camerax_version}"
         const val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}"
         const val view = "androidx.camera:camera-view:${camerax_version}"
