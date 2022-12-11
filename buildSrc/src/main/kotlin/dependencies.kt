@@ -1,7 +1,7 @@
 object Ext {
     const val applicationId = "com.ohyooo.qrscan"
     const val compileSdk = 33
-    const val buildToolsVersion = "33.0.0"
+    const val buildToolsVersion = "33.0.1"
     const val minSdk = 21
     const val targetSdk = 33
     const val versionCode = 6
@@ -65,7 +65,7 @@ object Libs {
     }
 
     object Compose {
-        const val composeVersion = "1.3.1"
+        const val composeVersion = "1.3.2"
         const val compilerVersion = "1.4.0-alpha02"
         const val compiler = "androidx.compose.compiler:compiler:$compilerVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
