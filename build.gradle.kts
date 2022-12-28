@@ -15,19 +15,19 @@ allprojects {
         google()
         mavenCentral()
     }
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "17"
+            freeCompilerArgs = freeCompilerArgs + listOf(
+                "-Xbackend-threads=12", "-Xcontext-receivers", "-jvm-target=17"
+            )
+        }
+    }
 }
 
 tasks.register<Delete>("clean") {
     delete(rootProject.buildDir)
-}
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "17"
-        freeCompilerArgs = freeCompilerArgs + listOf(
-            "-Xbackend-threads=12", "-Xcontext-receivers"
-        )
-    }
 }
 
 tasks.withType<GroovyCompile>().configureEach {

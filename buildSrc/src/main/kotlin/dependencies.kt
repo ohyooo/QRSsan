@@ -27,9 +27,9 @@ object Libs {
 
     object Google {
         const val material = "com.google.android.material:material:1.7.0"
-        const val barcode = "com.google.mlkit:barcode-scanning:17.0.2"
+        const val barcode = "com.google.mlkit:barcode-scanning:17.0.3"
 
-        private const val accompanistVersion = "0.27.0"
+        private const val accompanistVersion = "0.28.0"
         const val pager = "com.google.accompanist:accompanist-pager:$accompanistVersion"
         const val indicators = "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"
 
@@ -40,11 +40,11 @@ object Libs {
         const val coreKtx = "androidx.core:core-ktx:1.9.0"
         const val datastore = "androidx.datastore:datastore-preferences:1.0.0"
         const val activity_compose = "androidx.activity:activity-compose:1.6.1"
-        const val fragment = "androidx.fragment:fragment-ktx:1.5.4"
+        const val fragment = "androidx.fragment:fragment-ktx:1.5.5"
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
         const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
-        const val profileinstaller = "androidx.profileinstaller:profileinstaller:1.2.0"
+        const val profileinstaller = "androidx.profileinstaller:profileinstaller:1.2.1"
 
         val list = arrayOf(coreKtx, datastore, activity_compose, fragment, lifecycle, serialization, coroutines, profileinstaller)
     }
@@ -80,7 +80,7 @@ object Libs {
     }
 
     object Camera {
-        private const val camerax_version = "1.3.0-alpha01"
+        private const val camerax_version = "1.3.0-alpha02"
         const val camera2 = "androidx.camera:camera-camera2:${camerax_version}"
         const val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}"
         const val view = "androidx.camera:camera-view:${camerax_version}"
