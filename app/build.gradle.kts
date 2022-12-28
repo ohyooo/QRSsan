@@ -24,7 +24,7 @@ android {
         minSdk = Ext.minSdk
         targetSdk = Ext.targetSdk
         versionCode = Ext.versionCode
-        versionName = Ext.versionName
+        versionName = Ext.versionName + hashTag
         proguardFile("proguard-rules.pro")
         signingConfig = signingConfigs.getByName("debug")
     }
@@ -83,3 +83,22 @@ dependencies {
     Libs.composes.forEach(::implementation)
     Libs.implementations.forEach(::implementation)
 }
+
+val hashTag: String
+    get() {
+        if (!File(rootDir.path + "/.git").exists()) return ""
+        return ProcessBuilder(listOf("git", "rev-parse", "--short", "HEAD"))
+            .directory(rootDir)
+            .redirectOutput(ProcessBuilder.Redirect.PIPE)
+            .redirectError(ProcessBuilder.Redirect.PIPE)
+            .start()
+            .apply { waitFor(5, TimeUnit.SECONDS) }
+            .run {
+                val error = errorStream.bufferedReader().readText().trim()
+                if (error.isNotEmpty()) {
+                    ""
+                } else {
+                    "-" + inputStream.bufferedReader().readText().trim()
+                }
+            }
+    }
