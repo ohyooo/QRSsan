@@ -29,8 +29,7 @@ class ScanViewModel(context: Application) : AndroidViewModel(context) {
     }
 
     fun handleUri(uri: Uri?) {
-        uri ?: return
-        uri.task.addOnSuccessListener { r ->
+        uri?.task?.addOnSuccessListener { r ->
             r.firstOrNull()?.displayValue?.let(result::tryEmit)
         }
     }
