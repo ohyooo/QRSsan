@@ -12,7 +12,7 @@ object Libs {
     private const val kotlin_version = "1.7.21"
 
     object Plugin {
-        const val AGP = "com.android.tools.build:gradle:7.3.1"
+        const val AGP = "com.android.tools.build:gradle:7.4.0"
         const val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         const val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
 
@@ -44,7 +44,7 @@ object Libs {
         const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
         const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
-        const val profileinstaller = "androidx.profileinstaller:profileinstaller:1.2.1"
+        const val profileinstaller = "androidx.profileinstaller:profileinstaller:1.2.2"
 
         val list = arrayOf(coreKtx, datastore, activity_compose, fragment, lifecycle, serialization, coroutines, profileinstaller)
     }
@@ -65,7 +65,7 @@ object Libs {
     }
 
     object Compose {
-        const val composeVersion = "1.4.0-alpha03"
+        const val composeVersion = "1.4.0-alpha04"
         const val compilerVersion = "1.4.0-alpha02"
         const val compiler = "androidx.compose.compiler:compiler:$compilerVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
