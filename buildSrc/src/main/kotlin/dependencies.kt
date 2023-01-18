@@ -9,7 +9,7 @@ object Ext {
 }
 
 object Libs {
-    private const val kotlin_version = "1.7.21"
+    private const val kotlin_version = "1.8.0"
 
     object Plugin {
         const val AGP = "com.android.tools.build:gradle:7.4.0"
@@ -51,7 +51,7 @@ object Libs {
 
     object Test {
         const val junit = "androidx.test.ext:junit:1.1.3"
-        const val espresso = "androidx.test.espresso:espresso-core:3.4.0"
+        const val espresso = "androidx.test.espresso:espresso-core:3.5.1"
         const val uiautomator = "androidx.test.uiautomator:uiautomator:2.2.0"
         const val macro = "androidx.benchmark:benchmark-macro-junit4:1.2.0-alpha06"
 
@@ -66,7 +66,7 @@ object Libs {
 
     object Compose {
         const val composeVersion = "1.4.0-alpha04"
-        const val compilerVersion = "1.4.0-alpha02"
+        const val compilerVersion = "1.4.0"
         const val compiler = "androidx.compose.compiler:compiler:$compilerVersion"
         const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
         const val layout = "androidx.compose.foundation:foundation-layout:$composeVersion"

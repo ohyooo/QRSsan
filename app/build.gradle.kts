@@ -51,7 +51,6 @@ android {
                 isOptimizeCode = true
             }
         }
-
     }
     splits {
         abi {
