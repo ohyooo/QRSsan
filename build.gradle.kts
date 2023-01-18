@@ -56,8 +56,8 @@ abstract class UpdateTask : DefaultTask() {
         val file = if (autoModify) File("./buildSrc/src/main/kotlin/dependencies.kt") else null
         val text = arrayOf(file?.readText() ?: "")
 
-        val size = Libs.deps.size
-        Libs.deps.forEachIndexed i@{ index, dep ->
+        val size = Libs.updateList.size
+        Libs.updateList.forEachIndexed i@{ index, dep ->
             println("${index + 1}/$size")
             check(dep, text)
         }

@@ -79,8 +79,8 @@ android {
 }
 
 dependencies {
-    Libs.composes.forEach(::implementation)
-    Libs.implementations.forEach(::implementation)
+    Libs.implementList.forEach(::implementation)
+    Libs.debugImplementList.forEach(::debugImplementation)
 }
 
 val hashTag: String
