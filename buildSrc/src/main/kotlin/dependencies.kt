@@ -13,10 +13,10 @@ object Libs {
     val implementList = arrayListOf<String>()
     val debugImplementList = arrayListOf<String>()
 
-    private const val kotlin_version = "1.8.0"
+    private const val kotlin_version = "1.8.10"
 
     object Plugin {
-        val AGP = "com.android.tools.build:gradle:7.4.0".regUpdate()
+        val AGP = "com.android.tools.build:gradle:7.4.1".regUpdate()
         val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version".regUpdate()
         val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version".regUpdate()
     }
@@ -50,8 +50,8 @@ object Libs {
     }
 
     object Compose {
-        val composeVersion = "1.4.0-alpha04"
-        val compilerVersion = "1.4.0"
+        val composeVersion = "1.4.0-beta01"
+        val compilerVersion = "1.4.2"
         val compiler = "androidx.compose.compiler:compiler:$compilerVersion".regLib()
         val foundation = "androidx.compose.foundation:foundation:$composeVersion".regLib()
         val material = "androidx.compose.material:material:$composeVersion".regLib()
