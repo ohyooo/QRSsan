@@ -26,7 +26,7 @@ object Libs {
     }
 
     object Google {
-        val material = "com.google.android.material:material:1.7.0".regLib()
+        val material = "com.google.android.material:material:1.8.0".regLib()
         val barcode = "com.google.mlkit:barcode-scanning:17.0.3".regLib()
 
         private const val accompanistVersion = "0.28.0"
@@ -68,7 +68,7 @@ object Libs {
     }
 
     object Test {
-        val junit = "androidx.test.ext:junit:1.1.3".regUpdate()
+        val junit = "androidx.test.ext:junit:1.1.5".regUpdate()
         val espresso = "androidx.test.espresso:espresso-core:3.5.1".regUpdate()
         val uiautomator = "androidx.test.uiautomator:uiautomator:2.2.0".regUpdate()
         val macro = "androidx.benchmark:benchmark-macro-junit4:1.2.0-alpha06".regUpdate()
