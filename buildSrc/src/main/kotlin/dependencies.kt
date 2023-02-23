@@ -50,8 +50,8 @@ object Libs {
     }
 
     object Compose {
-        val composeVersion = "1.4.0-beta01"
-        val compilerVersion = "1.4.2"
+        val composeVersion = "1.4.0-beta02"
+        val compilerVersion = "1.4.3"
         val compiler = "androidx.compose.compiler:compiler:$compilerVersion".regLib()
         val foundation = "androidx.compose.foundation:foundation:$composeVersion".regLib()
         val material = "androidx.compose.material:material:$composeVersion".regLib()
