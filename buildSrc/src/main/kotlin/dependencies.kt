@@ -13,12 +13,15 @@ object Libs {
     val implementList = arrayListOf<String>()
     val debugImplementList = arrayListOf<String>()
 
-    private const val kotlin_version = "1.8.20"
+    object Version {
+        const val agp = "8.0.0"
+        const val kotlin = "1.8.20"
+    }
 
     object Plugin {
-        val AGP = "com.android.tools.build:gradle:8.0.0".regUpdate()
-        val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version".regUpdate()
-        val KS = "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version".regUpdate()
+        val AGP = "com.android.tools.build:gradle:${Version.agp}".regUpdate()
+        val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlin}".regUpdate()
+        val KS = "org.jetbrains.kotlin:kotlin-serialization:${Version.kotlin}".regUpdate()
     }
 
     object Kotlin {
@@ -37,8 +40,8 @@ object Libs {
     object AndroidX {
         val coreKtx = "androidx.core:core-ktx:1.10.0".regLib()
         val datastore = "androidx.datastore:datastore-preferences:1.0.0".regLib()
-        val activity_compose = "androidx.activity:activity-compose:1.7.0".regLib()
-        val fragment = "androidx.fragment:fragment-ktx:1.5.6".regLib()
+        val activity_compose = "androidx.activity:activity-compose:1.7.1".regLib()
+        val fragment = "androidx.fragment:fragment-ktx:1.5.7".regLib()
         val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1".regLib()
         val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0".regLib()
         val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4".regLib()
@@ -50,8 +53,8 @@ object Libs {
     }
 
     object Compose {
-        val composeVersion = "1.4.1"
-        val compilerVersion = "1.4.5"
+        val composeVersion = "1.4.2"
+        val compilerVersion = "1.4.6"
         val compiler = "androidx.compose.compiler:compiler:$compilerVersion".regLib()
         val foundation = "androidx.compose.foundation:foundation:$composeVersion".regLib()
         val material = "androidx.compose.material:material:$composeVersion".regLib()
@@ -88,9 +91,11 @@ object Libs {
         implementList.add(it)
         updateList.add(it)
     }
+
     fun String.regDebug() = this.also {
         debugImplementList.add(it)
         updateList.add(it)
     }
+
     private fun String.regUpdate() = this.also(updateList::add)
 }
