@@ -2,7 +2,7 @@
 
 plugins {
     id("com.android.application") version Libs.Version.agp apply false
-    id("org.jetbrains.kotlin.android") version Libs.Version.kotlin apply false
+    kotlin("android") version Libs.Version.kotlin apply false
     kotlin("plugin.serialization") version Libs.Version.kotlin apply false
 }
 

@@ -15,4 +15,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "QRScan"
-include(":app", ":benchmark")
+include(":app")
