@@ -15,7 +15,7 @@ object Libs {
 
     object Version {
         const val agp = "8.0.0"
-        const val kotlin = "1.8.20"
+        const val kotlin = "1.8.21"
     }
 
     object Plugin {
@@ -61,10 +61,12 @@ object Libs {
         val materialIconsExtended = "androidx.compose.material:material-icons-extended:$composeVersion".regLib()
         val runtime = "androidx.compose.runtime:runtime:$composeVersion".regLib()
         val ui = "androidx.compose.ui:ui:$composeVersion".regLib()
+        val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:$composeVersion".regLib()
+        val uiTooling = "androidx.compose.ui:ui-tooling:$composeVersion".regDebug()
     }
 
     object Camera {
-        private const val camerax_version = "1.3.0-alpha04"
+        private const val camerax_version = "1.3.0-alpha06"
         val camera2 = "androidx.camera:camera-camera2:${camerax_version}".regLib()
         val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}".regLib()
         val view = "androidx.camera:camera-view:${camerax_version}".regLib()
