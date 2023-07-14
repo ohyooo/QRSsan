@@ -1,11 +1,10 @@
 object Ext {
     const val applicationId = "com.ohyooo.qrscan"
-    const val compileSdk = 33
-    const val buildToolsVersion = "33.0.2"
+    const val compileSdk = 34
     const val minSdk = 21
-    const val targetSdk = 33
-    const val versionCode = 8
-    const val versionName = "2.8"
+    const val targetSdk = 34
+    const val versionCode = 9
+    const val versionName = "2.9"
 }
 
 object Libs {
@@ -14,8 +13,8 @@ object Libs {
     val debugImplementList = arrayListOf<String>()
 
     object Version {
-        const val agp = "8.0.1"
-        const val kotlin = "1.8.21"
+        const val agp = "8.0.2"
+        const val kotlin = "1.8.22"
     }
 
     object Plugin {
@@ -25,11 +24,11 @@ object Libs {
     }
 
     object Kotlin {
-        val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4".regLib()
+        val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2".regLib()
     }
 
     object Google {
-        val material = "com.google.android.material:material:1.8.0".regLib()
+        val material = "com.google.android.material:material:1.9.0".regLib()
         val barcode = "com.google.mlkit:barcode-scanning:17.1.0".regLib()
 
         private const val accompanistVersion = "0.30.1"
@@ -38,23 +37,23 @@ object Libs {
     }
 
     object AndroidX {
-        val coreKtx = "androidx.core:core-ktx:1.10.0".regLib()
+        val coreKtx = "androidx.core:core-ktx:1.10.1".regLib()
         val datastore = "androidx.datastore:datastore-preferences:1.0.0".regLib()
-        val activity_compose = "androidx.activity:activity-compose:1.7.1".regLib()
-        val fragment = "androidx.fragment:fragment-ktx:1.5.7".regLib()
+        val activity_compose = "androidx.activity:activity-compose:1.7.2".regLib()
+        val fragment = "androidx.fragment:fragment-ktx:1.6.0".regLib()
         val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1".regLib()
-        val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0".regLib()
-        val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4".regLib()
-        val profileinstaller = "androidx.profileinstaller:profileinstaller:1.3.0".regLib()
+        val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1".regLib()
+        val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2".regLib()
+        val profileinstaller = "androidx.profileinstaller:profileinstaller:1.3.1".regLib()
     }
 
     object Navigation {
-        val compose = "androidx.navigation:navigation-compose:2.5.3".regUpdate()
+        val compose = "androidx.navigation:navigation-compose:2.6.0".regUpdate()
     }
 
     object Compose {
-        val composeVersion = "1.4.2"
-        val compilerVersion = "1.4.6"
+        val composeVersion = "1.4.3"
+        val compilerVersion = "1.4.8"
         val compiler = "androidx.compose.compiler:compiler:$compilerVersion".regLib()
         val foundation = "androidx.compose.foundation:foundation:$composeVersion".regLib()
         val material = "androidx.compose.material:material:$composeVersion".regLib()
@@ -66,7 +65,7 @@ object Libs {
     }
 
     object Camera {
-        private const val camerax_version = "1.3.0-alpha06"
+        private const val camerax_version = "1.3.0-beta01"
         val camera2 = "androidx.camera:camera-camera2:${camerax_version}".regLib()
         val lifecycle = "androidx.camera:camera-lifecycle:${camerax_version}".regLib()
         val view = "androidx.camera:camera-view:${camerax_version}".regLib()
