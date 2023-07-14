@@ -11,6 +11,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.pager.*
@@ -25,6 +26,7 @@ private val Setting = Icons.Rounded.Settings
 
 private val tabList = listOf(Result, Edit, Local, History, Setting)
 
+@Preview
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun MainUI(vm: ScanViewModel = viewModel()) {
@@ -44,7 +46,6 @@ fun MainUI(vm: ScanViewModel = viewModel()) {
     }
 }
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun Home(vm: ScanViewModel) {
     Column {

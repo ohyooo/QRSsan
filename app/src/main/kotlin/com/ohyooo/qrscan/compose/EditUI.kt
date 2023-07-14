@@ -15,12 +15,14 @@ import androidx.compose.ui.unit.dp
 import com.ohyooo.qrscan.ScanViewModel
 
 @Composable
-fun EditUI(vm: ScanViewModel) {
+fun EditUI(
+    vm: ScanViewModel,
+    onTextChange: (String) -> Unit = {}
+) {
     var editText by remember { mutableStateOf("") }
-
     var lastText by remember { mutableStateOf("") }
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(vm) {
         vm.result.collect {
             if (lastText == it) return@collect
             editText = it
@@ -28,13 +30,14 @@ fun EditUI(vm: ScanViewModel) {
         }
     }
 
-    Box(modifier = Modifier.padding(16.dp)) {
-        OutlinedTextField(
-            value = editText,
-            onValueChange = {
-                editText = it
-            },
-            modifier = Modifier.fillMaxSize()
-        )
-    }
+    OutlinedTextField(
+        value = editText,
+        onValueChange = {
+            editText = it
+            onTextChange(it)
+        },
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxSize()
+    )
 }

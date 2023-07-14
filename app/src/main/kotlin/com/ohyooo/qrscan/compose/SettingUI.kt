@@ -21,39 +21,28 @@ import kotlinx.coroutines.launch
 @Composable
 fun SettingUI() {
     val context: Context = LocalContext.current
+    val coroutineScope = rememberCoroutineScope()
 
-    var confirm by remember {
-        mutableStateOf(State.NORMAL)
-    }
+    var confirm by remember { mutableStateOf(State.NORMAL) }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        val coroutineScope = rememberCoroutineScope()
-        var job: Job? = null
-
         Button(onClick = {
             when (confirm) {
                 State.NORMAL -> {
                     confirm = State.CONFIRM
-                    job?.cancel()
-                    job = coroutineScope.launch {
-                        delay(1500)
-                        confirm = State.NORMAL
-                    }
                 }
+
                 State.CONFIRM -> {
                     coroutineScope.launch { context.clearHistory() }
                     confirm = State.DELETED
                 }
+
                 State.DELETED -> {
-                    job?.cancel()
-                    job = coroutineScope.launch {
-                        delay(1500)
-                        confirm = State.NORMAL
-                    }
+                    confirm = State.NORMAL
                 }
             }
         }) {
@@ -61,13 +50,12 @@ fun SettingUI() {
                 Icon(Icons.Rounded.History, "")
                 Icon(Icons.Rounded.ArrowForward, "")
                 when (confirm) {
-                    State.NORMAL -> {
-                        Icon(Icons.Rounded.Delete, "")
-                    }
+                    State.NORMAL -> Icon(Icons.Rounded.Delete, "")
                     State.CONFIRM -> {
                         Icon(Icons.Rounded.DeleteForever, "")
                         Icon(Icons.Rounded.QuestionMark, "")
                     }
+
                     State.DELETED -> {
                         Icon(Icons.Rounded.Delete, "")
                         Icon(Icons.Rounded.Check, "")
@@ -75,8 +63,30 @@ fun SettingUI() {
                 }
             }
         }
+
+        // Handle delayed state changes
+        when (confirm) {
+            State.NORMAL -> {
+                // Do nothing
+            }
+
+            State.CONFIRM -> {
+                LaunchedEffect(Unit) {
+                    delay(1500)
+                    confirm = State.NORMAL
+                }
+            }
+
+            State.DELETED -> {
+                LaunchedEffect(Unit) {
+                    delay(1500)
+                    confirm = State.NORMAL
+                }
+            }
+        }
     }
 }
+
 
 enum class State {
     NORMAL,
