@@ -68,12 +68,7 @@ camera_camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cam
 camera_lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camerax" }
 camera_view = { module = "androidx.camera:camera-view", version.ref = "camerax" }
 
-# Test
-junit = "androidx.test.ext:junit:1.1.5"
-espresso_core = "androidx.test.espresso:espresso-core:3.5.1"
-uiautomator = "androidx.test.uiautomator:uiautomator:2.2.0"
-benchmark_macro-junit4 = "androidx.benchmark:benchmark-macro-junit4:1.2.0-alpha06"
 
 [bundles]
-all = ["kotlinx_coroutines_android" ,"google_material" ,"google_barcode" ,"accompanist_pager" ,"accompanist_pager_indicators" ,"androidx_core_ktx" ,"datastore_preferences" ,"activity_compose" ,"fragment_ktx" ,"lifecycle_viewmodel_compose" ,"kotlinx_serialization" ,"kotlinx_coroutines_core" ,"profileinstaller" ,"navigation_compose" ,"compose_compiler" ,"compose_foundation" ,"compose_material" ,"compose_material_icons_extended" ,"compose_runtime" ,"compose_ui" ,"compose_ui_tooling_preview" ,"compose_ui_tooling","camera_camera2" ,"camera_lifecycle" ,"camera_view" ,"junit" ,"espresso_core" ,"uiautomator" ,"benchmark_macro_junit4"]
+all = ["kotlinx_coroutines_android" ,"google_material" ,"google_barcode" ,"accompanist_pager" ,"accompanist_pager_indicators" ,"androidx_core_ktx" ,"datastore_preferences" ,"activity_compose" ,"fragment_ktx" ,"lifecycle_viewmodel_compose" ,"kotlinx_serialization" ,"kotlinx_coroutines_core" ,"profileinstaller" ,"navigation_compose" ,"compose_compiler" ,"compose_foundation" ,"compose_material" ,"compose_material_icons_extended" ,"compose_runtime" ,"compose_ui" ,"compose_ui_tooling_preview" ,"compose_ui_tooling","camera_camera2" ,"camera_lifecycle" ,"camera_view"]
 
