@@ -17,12 +17,13 @@ android {
         }
     }
     namespace = libs.versions.application.id.get()
+	compileSdk = libs.versions.compile.sdk.get().toInt()
     defaultConfig {
         applicationId = libs.versions.application.id.get()
         minSdk = libs.versions.min.sdk.get().toInt()
         targetSdk = libs.versions.target.sdk.get().toInt()
         versionCode = libs.versions.version.code.get().toInt()
-        versionName = libs.versions.target.sdk.get().toInt() + hashTag
+        versionName = libs.versions.target.sdk.get() + hashTag
         proguardFile("proguard-rules.pro")
         signingConfig = signingConfigs.getByName("debug")
     }
@@ -72,13 +73,12 @@ android {
         shaders = false
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.version
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.version.get()
     }
 }
 
 dependencies {
-    Libs.implementList.forEach(::implementation)
-    Libs.debugImplementList.forEach(::debugImplementation)
+    implementation(libs.bundles.all)
 }
 
 val hashTag: String
