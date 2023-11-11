@@ -1,9 +1,9 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    id("com.android.application") version Libs.Version.agp apply false
-    kotlin("android") version Libs.Version.kotlin apply false
-    kotlin("plugin.serialization") version Libs.Version.kotlin apply false
+    alias(libs.plugins.agp) apply false
+    alias(libs.plugins.kgp) apply false
+    alias(libs.plugins.ks) apply false
 }
 
 allprojects {

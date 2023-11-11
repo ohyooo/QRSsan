@@ -18,9 +18,9 @@ object Libs {
     }
 
     object Plugin {
-        val AGP = "com.android.tools.build:gradle:${Version.agp}".regUpdate()
-        val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlin}".regUpdate()
-        val KS = "org.jetbrains.kotlin:kotlin-serialization:${Version.kotlin}".regUpdate()
+        val AGP = "com.android.tools.build:gradle:${Version.agp}"
+        val KGP = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlin}"
+        val KS = "org.jetbrains.kotlin:kotlin-serialization:${Version.kotlin}"
     }
 
     object Kotlin {
@@ -48,7 +48,7 @@ object Libs {
     }
 
     object Navigation {
-        val compose = "androidx.navigation:navigation-compose:2.6.0".regUpdate()
+        val compose = "androidx.navigation:navigation-compose:2.6.0"
     }
 
     object Compose {
@@ -72,10 +72,10 @@ object Libs {
     }
 
     object Test {
-        val junit = "androidx.test.ext:junit:1.1.5".regUpdate()
-        val espresso = "androidx.test.espresso:espresso-core:3.5.1".regUpdate()
-        val uiautomator = "androidx.test.uiautomator:uiautomator:2.2.0".regUpdate()
-        val macro = "androidx.benchmark:benchmark-macro-junit4:1.2.0-alpha06".regUpdate()
+        val junit = "androidx.test.ext:junit:1.1.5"
+        val espresso = "androidx.test.espresso:espresso-core:3.5.1"
+        val uiautomator = "androidx.test.uiautomator:uiautomator:2.2.0"
+        val macro = "androidx.benchmark:benchmark-macro-junit4:1.2.0-alpha06"
     }
 
     init {
@@ -98,5 +98,5 @@ object Libs {
         updateList.add(it)
     }
 
-    private fun String.regUpdate() = this.also(updateList::add)
+    private fun String = this.also(updateList::add)
 }

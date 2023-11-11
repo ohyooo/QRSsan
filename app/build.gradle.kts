@@ -16,14 +16,13 @@ android {
             enableV4Signing = true
         }
     }
-    namespace = Ext.applicationId
-    compileSdk = Ext.compileSdk
+    namespace = libs.versions.application.id.get()
     defaultConfig {
-        applicationId = Ext.applicationId
-        minSdk = Ext.minSdk
-        targetSdk = Ext.targetSdk
-        versionCode = Ext.versionCode
-        versionName = Ext.versionName + hashTag
+        applicationId = libs.versions.application.id.get()
+        minSdk = libs.versions.min.sdk.get().toInt()
+        targetSdk = libs.versions.target.sdk.get().toInt()
+        versionCode = libs.versions.version.code.get().toInt()
+        versionName = libs.versions.target.sdk.get().toInt() + hashTag
         proguardFile("proguard-rules.pro")
         signingConfig = signingConfigs.getByName("debug")
     }
@@ -73,7 +72,7 @@ android {
         shaders = false
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Libs.Compose.compilerVersion
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.version
     }
 }
 
