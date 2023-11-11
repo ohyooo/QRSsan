@@ -34,7 +34,7 @@ json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.re
 
 
 # Kotlin
-kotlinx_coroutines-android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2"
+kotlinx_coroutines-android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
 kotlinx_coroutines-core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
 kotlinx_serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"
 
