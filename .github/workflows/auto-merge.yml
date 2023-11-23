@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Merge Pull Requests
         if: github.actor == 'dependabot[bot]' && github.event_name == 'check_suite' && github.event.check_suite.conclusion == 'success'
-        uses: actions/github-script@v4
+        uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
