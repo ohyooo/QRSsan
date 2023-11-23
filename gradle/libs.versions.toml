@@ -39,7 +39,7 @@ kotlinx_serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.1"
 
 # Google
 google_material = "com.google.android.material:material:1.9.0"
-google_barcode = "com.google.mlkit:barcode-scanning:17.1.0"
+google_barcode = "com.google.mlkit:barcode-scanning:17.2.0"
 accompanist_pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
 accompanist_pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
 
