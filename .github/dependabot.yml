@@ -1,22 +1,30 @@
 version: 2
 updates:
-  - package-ecosystem: "gradle"
-    directory: "/"
+  - package-ecosystem: gradle
+    directory: /
     schedule:
-      interval: "daily"
+      interval: daily
     registries:
       - maven-google
       - gradle-plugin
+    group:
+      name: gradle-updates
+      packages:
+        - '*'
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "daily"
+      interval: daily
+    group:
+      name: github-actions-updates
+      packages:
+        - '*'
 
 registries:
   maven-google:
     type: maven-repository
-    url: "https://dl.google.com/dl/android/maven2/"
+    url: https://dl.google.com/dl/android/maven2/
   gradle-plugin:
     type: maven-repository
-    url: "https://plugins.gradle.org/m2/"
+    url: https://plugins.gradle.org/m2/
