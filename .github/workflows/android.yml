@@ -5,64 +5,64 @@ on:
   repository_dispatch:
   workflow_dispatch:
 
+permissions:
+  actions: write
+  contents: write
+
 jobs:
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@main
 
       - name: Get Time
         id: time
-        uses: nanzm/get-time-action@v2.0
+        uses: nanzm/get-time-action@master
         with:
           timeZone: 8
           format: 'YYYYMMDDHHmmss'
      
-      - uses: actions/setup-java@v4
+      - name: Setup JDK
+        uses: actions/setup-java@main
         with:
           distribution: 'zulu'
-          java-version: '21'        
- 
+          java-version: '21'
+          java-package: jdk
+          cache: 'gradle'
+          
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Build APK
-        run: ./gradlew assembleRelease
-     
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.time.outputs.time }}
-          release_name: QRScan Release ${{ steps.time.outputs.time }}
-          draft: false
-          prerelease: false
+        run: ./gradlew :android:assembleRelease
 
       - name: Generate release tag
         id: tag
         run: |
           echo "::set-output name=release_tag::$(date +"%Y.%m.%d_%H-%M")"
 
-      - name: Upload Release
-        uses: softprops/action-gh-release@v1
+      - name: Upload to release
+        uses: svenstaro/upload-release-action@master
         with:
-          tag_name: ${{ steps.tag.outputs.release_tag }}
-          files: "app/build/outputs/apk/release/*.apk"
- 
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: app/build/outputs/apk/release/*.apk
+          asset_name: ${{ steps.tag.outputs.release_tag }}
+          tag: ${{ github.ref }}_${{ steps.time.outputs.time }}
+          overwrite: true
+          file_glob: true
+
       - name: Remove old Releases
-        uses: dev-drprasad/delete-older-releases@v0.3.2
+        uses: dev-drprasad/delete-older-releases@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          keep_latest: 5
+          keep_latest: 3
           delete_tags: true
 
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
         with:
-          retain_days: 10
+          retain_days: 3
           keep_minimum_runs: 2
