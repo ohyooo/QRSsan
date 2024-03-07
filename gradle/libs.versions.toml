@@ -14,7 +14,7 @@ serialization = "1.6.3"
 compose_compiler_version="1.5.10"
 
 accompanist = "0.34.0"
-compose = "1.6.2"
+compose = "1.6.3"
 camerax = "1.4.0-alpha04"
 
 
