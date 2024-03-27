@@ -6,15 +6,15 @@ compile_sdk = "34"
 version_code = "10"
 version_name = "2.10"
 
-agp = "8.3.0"
-kotlin = "1.9.22"
+agp = "8.3.1"
+kotlin = "1.9.23"
 workmanager = "2.8.1"
 serialization = "1.6.3"
 
-compose_compiler_version="1.5.10"
+compose_compiler_version="1.5.11"
 
 accompanist = "0.34.0"
-compose = "1.6.3"
+compose = "1.6.4"
 camerax = "1.4.0-alpha04"
 
 
