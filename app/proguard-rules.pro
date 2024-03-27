@@ -64,3 +64,4 @@
 -dontwarn org.jetbrains.kotlin.diagnostics.rendering.Renderers
 -dontwarn org.jetbrains.kotlin.diagnostics.rendering.SmartDescriptorRenderer
 -dontwarn org.jetbrains.kotlin.diagnostics.rendering.SmartTypeRenderer
+-dontwarn org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrar
