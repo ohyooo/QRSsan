@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+import java.io.ByteArrayOutputStream
+import java.nio.charset.Charset
+
 plugins {
     alias(libs.plugins.agp) apply false
     alias(libs.plugins.kgp) apply false
