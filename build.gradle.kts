@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.agp) apply false
     alias(libs.plugins.kgp) apply false
     alias(libs.plugins.ks) apply false
+    alias(libs.plugins.cc) apply false
 }
 
 allprojects {
