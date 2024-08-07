@@ -7,7 +7,7 @@ version_code = "10"
 version_name = "2.10"
 
 agp = "8.5.1"
-kotlin = "2.0.0"
+kotlin = "2.0.10"
 workmanager = "2.8.1"
 serialization = "1.7.1"
 
@@ -39,7 +39,7 @@ kotlinx_serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1"
 
 # Google
 google_material = "com.google.android.material:material:1.12.0"
-google_barcode = "com.google.mlkit:barcode-scanning:17.2.0"
+google_barcode = "com.google.mlkit:barcode-scanning:17.3.0"
 accompanist_pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
 accompanist_pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
 
