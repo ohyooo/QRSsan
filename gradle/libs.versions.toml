@@ -11,11 +11,11 @@ kotlin = "2.0.10"
 workmanager = "2.8.1"
 serialization = "1.7.1"
 
-compose_compiler_version="1.5.14"
+compose_compiler_version="1.5.15"
 
 accompanist = "0.34.0"
 compose = "1.6.8"
-camerax = "1.4.0-beta02"
+camerax = "1.4.0-rc01"
 
 
 [plugins]
