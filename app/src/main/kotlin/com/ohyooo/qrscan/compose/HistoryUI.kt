@@ -20,7 +20,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.ohyooo.qrscan.util.KEY_LIST
 import com.ohyooo.qrscan.util.ds
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.util.regex.Pattern
 

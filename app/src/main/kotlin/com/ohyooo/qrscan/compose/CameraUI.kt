@@ -11,10 +11,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.ohyooo.qrscan.ScanViewModel
 import com.ohyooo.qrscan.util.QrCodeAnalyzer
 import kotlinx.coroutines.CoroutineScope
@@ -69,7 +69,7 @@ private fun initCamera(context: Context, lifecycleOwner: LifecycleOwner, vm: Sca
                     .setTargetResolution(size)
                     .build()
                     .apply {
-                        setSurfaceProvider(view.surfaceProvider)
+                        surfaceProvider = view.surfaceProvider
                     },
                 imageAnalysis
             )

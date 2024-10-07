@@ -3,6 +3,9 @@ package com.ohyooo.qrscan.compose
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.*
@@ -11,10 +14,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.layout
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.lerp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.google.accompanist.pager.*
 import com.ohyooo.qrscan.ScanViewModel
 import kotlinx.coroutines.launch
 
@@ -32,7 +38,7 @@ private val tabList = listOf(Result, Edit, Local, History, Setting)
 fun MainUI(vm: ScanViewModel = viewModel()) {
 
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
-        bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
+        bottomSheetState = BottomSheetState(initialValue = BottomSheetValue.Collapsed, density = LocalDensity.current)
     )
     BottomSheetScaffold(
         scaffoldState = bottomSheetScaffoldState,
@@ -49,7 +55,7 @@ fun MainUI(vm: ScanViewModel = viewModel()) {
 @Composable
 fun Home(vm: ScanViewModel) {
     Column {
-        val pagerState = rememberPagerState()
+        val pagerState = rememberPagerState { tabList.size }
 
         LaunchedEffect(Unit) {
             vm.result.collect { r ->
@@ -61,7 +67,7 @@ fun Home(vm: ScanViewModel) {
 
         Tab(pagerState)
 
-        HorizontalPager(state = pagerState, modifier = Modifier.weight(1F), count = tabList.size) { index ->
+        HorizontalPager(state = pagerState, modifier = Modifier.weight(1F)) { index ->
             Column(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
@@ -80,7 +86,6 @@ fun Home(vm: ScanViewModel) {
 }
 
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 private fun Tab(pagerState: PagerState) {
     val coroutineScope = rememberCoroutineScope()
@@ -106,4 +111,69 @@ private fun Tab(pagerState: PagerState) {
                 })
         }
     }
+}
+
+fun Modifier.pagerTabIndicatorOffset(
+    pagerState: PagerState,
+    tabPositions: List<TabPosition>,
+    pageIndexMapping: (Int) -> Int = { it },
+): Modifier {
+    val stateBridge = object : PagerStateBridge {
+        override val currentPage: Int
+            get() = pagerState.currentPage
+        override val currentPageOffset: Float
+            get() = pagerState.currentPageOffsetFraction
+    }
+
+    return pagerTabIndicatorOffset(stateBridge, tabPositions, pageIndexMapping)
+}
+
+private fun Modifier.pagerTabIndicatorOffset(
+    pagerState: PagerStateBridge,
+    tabPositions: List<TabPosition>,
+    pageIndexMapping: (Int) -> Int = { it },
+): Modifier = layout { measurable, constraints ->
+    if (tabPositions.isEmpty()) {
+        // If there are no pages, nothing to show
+        layout(constraints.maxWidth, 0) {}
+    } else {
+        val currentPage = minOf(tabPositions.lastIndex, pageIndexMapping(pagerState.currentPage))
+        val currentTab = tabPositions[currentPage]
+        val previousTab = tabPositions.getOrNull(currentPage - 1)
+        val nextTab = tabPositions.getOrNull(currentPage + 1)
+        val fraction = pagerState.currentPageOffset
+        val indicatorWidth = if (fraction > 0 && nextTab != null) {
+            lerp(currentTab.width, nextTab.width, fraction).roundToPx()
+        } else if (fraction < 0 && previousTab != null) {
+            lerp(currentTab.width, previousTab.width, -fraction).roundToPx()
+        } else {
+            currentTab.width.roundToPx()
+        }
+        val indicatorOffset = if (fraction > 0 && nextTab != null) {
+            lerp(currentTab.left, nextTab.left, fraction).roundToPx()
+        } else if (fraction < 0 && previousTab != null) {
+            lerp(currentTab.left, previousTab.left, -fraction).roundToPx()
+        } else {
+            currentTab.left.roundToPx()
+        }
+        val placeable = measurable.measure(
+            Constraints(
+                minWidth = indicatorWidth,
+                maxWidth = indicatorWidth,
+                minHeight = 0,
+                maxHeight = constraints.maxHeight
+            )
+        )
+        layout(constraints.maxWidth, maxOf(placeable.height, constraints.minHeight)) {
+            placeable.placeRelative(
+                indicatorOffset,
+                maxOf(constraints.minHeight - placeable.height, 0)
+            )
+        }
+    }
+}
+
+internal interface PagerStateBridge {
+    val currentPage: Int
+    val currentPageOffset: Float
 }

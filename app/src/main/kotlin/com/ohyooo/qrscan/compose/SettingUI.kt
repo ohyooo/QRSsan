@@ -8,13 +8,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.*
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.rounded.Check
+import androidx.compose.material.icons.rounded.Delete
+import androidx.compose.material.icons.rounded.DeleteForever
+import androidx.compose.material.icons.rounded.History
+import androidx.compose.material.icons.rounded.QuestionMark
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.ohyooo.qrscan.util.clearHistory
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -48,7 +52,7 @@ fun SettingUI() {
         }) {
             Row {
                 Icon(Icons.Rounded.History, "")
-                Icon(Icons.Rounded.ArrowForward, "")
+                Icon(Icons.AutoMirrored.Filled.ArrowForward, "")
                 when (confirm) {
                     State.NORMAL -> Icon(Icons.Rounded.Delete, "")
                     State.CONFIRM -> {
