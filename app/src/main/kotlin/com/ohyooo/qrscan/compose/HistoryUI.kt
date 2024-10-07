@@ -32,7 +32,6 @@ fun HistoryUI() {
     val results = remember {
         mutableStateListOf<String>()
     }
-    results.add("https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation")
 
     LaunchedEffect(coroutineScope) {
         context.ds.data.collect {
@@ -60,7 +59,8 @@ fun HistoryUI() {
                             LinkAnnotation.Url(
                                 urlString,
                                 TextLinkStyles(style = SpanStyle(color = Color.Blue))
-                            )
+                            ) {
+                            }
                         ) {
                             append(urlString)
                         }
