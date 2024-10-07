@@ -1,22 +1,23 @@
 package com.ohyooo.qrscan.compose
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.text.ClickableText
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withLink
 import androidx.compose.ui.unit.dp
 import com.ohyooo.qrscan.util.KEY_LIST
 import com.ohyooo.qrscan.util.ds
@@ -31,6 +32,7 @@ fun HistoryUI() {
     val results = remember {
         mutableStateListOf<String>()
     }
+    results.add("https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation")
 
     LaunchedEffect(coroutineScope) {
         context.ds.data.collect {
@@ -47,36 +49,28 @@ fun HistoryUI() {
                     .padding(16.dp)
                     .fillMaxWidth()
             ) {
-                val annotatedLinkString = remember(result) {
-                    val pattern = Pattern.compile("(?:(?:https?|ftp)://)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)")
+                val annotatedLinkString = buildAnnotatedString {
+                    val pattern = Pattern.compile("(?:(?:https?|ftp)://)?[-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)")
                     val matcher = pattern.matcher(result)
                     val builder = AnnotatedString.Builder(result)
 
                     while (matcher.find()) {
                         val urlString = matcher.group(0)
-                        builder.addStyle(
-                            SpanStyle(textDecoration = TextDecoration.Underline, color = Color.Blue),
-                            matcher.start(),
-                            matcher.end()
-                        )
-                        builder.addStringAnnotation(
-                            tag = "URL",
-                            annotation = urlString,
-                            start = matcher.start(),
-                            end = matcher.end()
-                        )
+                        withLink(
+                            LinkAnnotation.Url(
+                                urlString,
+                                TextLinkStyles(style = SpanStyle(color = Color.Blue))
+                            )
+                        ) {
+                            append(urlString)
+                        }
                     }
                     builder.toAnnotatedString()
+
                 }
 
-                ClickableText(
+                Text(
                     text = annotatedLinkString,
-                    onClick = { offset ->
-                        annotatedLinkString.getStringAnnotations("URL", offset, offset).firstOrNull()?.let {
-                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(it.item))
-                            context.startActivity(intent)
-                        }
-                    },
                     modifier = Modifier.fillMaxWidth()
                 )
             }
