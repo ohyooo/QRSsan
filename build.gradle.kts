@@ -1,5 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.io.ByteArrayOutputStream
 import java.nio.charset.Charset
 
@@ -12,10 +13,12 @@ plugins {
 
 allprojects {
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = "21"
-            freeCompilerArgs = freeCompilerArgs + listOf(
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+            freeCompilerArgs.addAll(
+                listOf(
                 "-Xbackend-threads=12", "-Xcontext-receivers", "-jvm-target=21"
+                )
             )
         }
     }
